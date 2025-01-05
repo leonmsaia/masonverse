@@ -4,7 +4,7 @@ FROM debian:bullseye-slim
 RUN apt-get update && apt-get install -y \
     mono-complete \
     libsqlite3-0 \
-    libmysqlclient-dev \
+    libmariadb-dev \
     wget \
     unzip \
     && rm -rf /var/lib/apt/lists/*
