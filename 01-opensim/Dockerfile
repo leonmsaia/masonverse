@@ -3,6 +3,8 @@ FROM debian:bullseye-slim
 # Instalar dependencias necesarias
 RUN apt-get update && apt-get install -y \
     mono-complete \
+    libsqlite3-0 \
+    libmysqlclient-dev \
     wget \
     unzip \
     && rm -rf /var/lib/apt/lists/*
