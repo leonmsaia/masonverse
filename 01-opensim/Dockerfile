@@ -9,9 +9,8 @@ RUN apt-get update && apt-get install -y \
 
 # Descargar y descomprimir OpenSimulator
 WORKDIR /opensim
-RUN wget -q https://opensimulator.org/dist/latest/OpenSim-0.9.2.2.zip -O opensim.zip \
+RUN wget -q http://opensimulator.org/dist/opensim-0.9.3.0.zip -O opensim.zip \
     && unzip opensim.zip && rm opensim.zip
 
 # Configurar el punto de entrada
-COPY data /opensim/data
-CMD ["sh", "-c", "./OpenSim.exe"]
+CMD ["mono", "OpenSim.exe"]
