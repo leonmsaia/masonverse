@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  opensim:
+    build:
+      context: ./01-opensim
+    container_name: opensim_server
+    depends_on:
+      - mysql
+    ports:
+      - "9000:9000/udp"  # Puerto para conexiones del cliente
+      - "8002:8002"      # Puerto para el Grid
+    volumes:
+      - ./01-opensim/data:/opensim/data
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3315
+      - DB_NAME=${MYSQL_DATABASE}
+      - DB_USER=${MYSQL_USER}
+      - DB_PASS=${MYSQL_PASSWORD}
+      - REGION_NAME=${REGION_NAME}
+      - REGION_UUID=${REGION_UUID}
+      - REGION_LOCATION=${REGION_LOCATION}
+      - REGION_PORT=${REGION_PORT}
+    restart: unless-stopped
+
+  mysql:
+    build:
+      context: ./02-mysql
+    container_name: opensim_mysql
+    ports:
+      - "3315:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
