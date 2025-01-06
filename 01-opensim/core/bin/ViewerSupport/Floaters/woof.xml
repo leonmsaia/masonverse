@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="woof" title="SnapshotX" width="250" height="400" min_width="100" min_height="100" can_close="true" can_minimize="true" can_resize="true">
+  <inventory_panel name="inv" start_folder="Photo Album" follows="all" left="5" right="-5" top="-20" bottom="5" show_item_link_overlays="true"/>
+</floater>

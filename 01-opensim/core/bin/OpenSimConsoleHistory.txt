@@ -1,0 +1,100 @@
+land show 1
+land show
+land show
+change region Test 2
+land show
+land show 1
+change region Test 2
+land show 1
+change region Test 2
+land show 1
+land show 1
+land show 1
+land show
+land show
+land show 2
+land show 2
+land show 1
+change region Test 2
+land show 1
+land show 2
+land show
+land show
+land show 1
+land show 2
+land show 2
+land show 2
+land show
+land show 3
+land show 1
+land show 3
+land show 3
+land show 2
+land show
+land show 2
+land show 3
+change region
+change region root
+land show
+change region Test 1
+land show
+land show 2
+land show 3
+land show 4
+land show
+show grid size
+show grid size
+show regions
+load iar
+load iar Test User / 123 rocketlauncher.iar
+load iar Test User /rocket 123 rocketlauncher.iar
+load iar Test User /rocket 123 rocketlauncher.iar
+load iar Test User Inventory/rocket 123 rocketlauncher.iar
+load iar Test User rocket 123 rocketlauncher.iar
+load iar Foo Bar rocket 123 rocketlauncher.iar
+show regions
+show regions
+Test
+Bot_0
+create user
+Test
+Bot_1
+create user
+show users
+show regions
+load oar ../../dispatcher/assets/penrose.oar
+load oar ../../../data/oars/oscc13_breakout_zone-2013-11-01.oar
+xstorage save
+xstorage save
+xstorage save
+xstorage save
+get config
+show config
+help
+help denug
+help debug
+help general
+config get SimulationStorage
+config get SimulationStorage
+xstorage save
+show regions
+change region Test 2
+load oar ../../../data/oars/reticulation_2014-06-08.oar
+xstorage save
+load oar ../../../data/oars/LOBBY_1-2015-02-17.oar
+xstorage save
+show modules
+save xml2
+change region "Test 2"
+show objects
+help
+help Objects
+help Regions
+show object pos <0,0,0> <1000,1000,1000>
+change region "Test 3"
+show object pos <0,0,0> <1000,1000,1000>
+change region "Test 3"
+save xml2
+show object pos <0,0,0> <1000,1000,1000>
+change region "Test 3"
+save xml2

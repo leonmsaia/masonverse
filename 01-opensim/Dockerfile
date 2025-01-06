@@ -5,15 +5,16 @@ RUN apt-get update && apt-get install -y \
     mono-complete \
     libsqlite3-0 \
     libmariadb-dev \
+    wget \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
-# Copiar los archivos descomprimidos al contenedor
+# Copiar los archivos de Diva Distribution al contenedor
 WORKDIR /opensim
-COPY opensim-files/ /opensim/
+COPY core/ /opensim/
 
-# Asegurar permisos de ejecución
-RUN chmod +x /opensim/bin/OpenSim.exe
+# Ejecutar configuración automática de Diva
+RUN mono /opensim/bin/Configure.exe --no-prompt
 
-# Configurar el punto de entrada
+# Configurar el punto de entrada para iniciar OpenSim
 CMD ["mono", "/opensim/bin/OpenSim.exe"]
