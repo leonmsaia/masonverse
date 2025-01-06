@@ -11,7 +11,7 @@ services:
       - "9000:9000/udp"  # Puerto para conexiones del cliente
       - "8002:8002"      # Puerto para el Grid
     volumes:
-      - ./01-opensim/data:/opensim/data
+      - ./01-opensim/core:/opensim
     environment:
       - DB_HOST=mysql
       - DB_PORT=3315
