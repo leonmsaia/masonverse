@@ -8,10 +8,12 @@ RUN apt-get update && apt-get install -y \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
-# Copiar el archivo descargado al contenedor y descomprimirlo
+# Copiar los archivos descomprimidos al contenedor
 WORKDIR /opensim
-COPY opensim-0.9.3.0.zip /opensim/
-RUN unzip opensim-0.9.3.0.zip && rm opensim-0.9.3.0.zip
+COPY opensim-files/ /opensim/
+
+# Asegurar permisos de ejecución
+RUN chmod +x /opensim/bin/OpenSim.exe
 
 # Configurar el punto de entrada
-CMD ["mono", "OpenSim.exe"]
+CMD ["mono", "/opensim/bin/OpenSim.exe"]
