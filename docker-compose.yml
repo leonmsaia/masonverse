@@ -14,7 +14,7 @@ services:
       - ./01-opensim/core:/opensim
     environment:
       - DB_HOST=mysql
-      - DB_PORT=3315
+      - DB_PORT=3306
       - DB_NAME=${MYSQL_DATABASE}
       - DB_USER=${MYSQL_USER}
       - DB_PASS=${MYSQL_PASSWORD}
@@ -23,10 +23,11 @@ services:
       - REGION_LOCATION=${REGION_LOCATION}
       - REGION_PORT=${REGION_PORT}
     restart: unless-stopped
+    networks:
+      - opensim-net
 
   mysql:
-    build:
-      context: ./02-mysql
+    image: mysql:5.7  # Usar imagen oficial para evitar inconsistencias
     container_name: opensim_mysql
     ports:
       - "3315:3306"
@@ -38,6 +39,11 @@ services:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     restart: unless-stopped
+    networks:
+      - opensim-net
 
 volumes:
   mysql_data:
+
+networks:
+  opensim-net:
